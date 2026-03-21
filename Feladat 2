@@ -1,0 +1,31 @@
+D. Mintakeresés LIKE
+Listázd ki azokat az ügyfeleket, akiknek a neve A betűvel kezdődik.
+Listázd ki azokat az ügyfeleket, akiknek a neve n betűre végződik.
+Listázd ki azokat a termékeket, amelyek neve tartalmazza a ch részletet.
+Kérd le azokat az ügyfeleket, akiknek a neve tartalmazza a market szórészletet.
+Listázd ki azokat a városokat a Customers táblából, amelyek S betűvel kezdődnek.
+E. Rendezés ORDER BY
+Rendezd az ügyfeleket név szerint növekvő sorrendbe.
+Rendezd az ügyfeleket ország szerint növekvő, azon belül név szerint csökkenő sorrendbe.
+Rendezd a termékeket ár szerint növekvő sorrendbe.
+Rendezd a termékeket ár szerint csökkenő sorrendbe.
+Rendezd a rendeléseket dátum szerint a legújabbtól a legrégebbi felé.
+F. Ismétlődések kiszűrése DISTINCT
+Kérd le, hogy milyen különböző országok szerepelnek a Customers táblában.
+Kérd le, hogy milyen különböző városok szerepelnek a Customers táblában.
+Kérd le, hogy milyen különböző ShipperID értékek vannak az Orders táblában.
+G. Összesítő függvények
+Hány ügyfél van összesen?
+Hány termék van összesen?
+Mi a legdrágább termék ára?
+Mi a legolcsóbb termék ára?
+Mennyi a termékek átlagára?
+Mennyi a termékek árainak összege?
+H. Csoportosítás GROUP BY, HAVING
+Országonként hány ügyfél van?
+Városonként hány ügyfél van?
+CategoryID szerint hány termék van?
+SupplierID szerint hány termék van?
+EmployeeID szerint hány rendelés van?
+Mely országokból van legalább 5 ügyfél?
+Mely SupplierID-khez tartozik 3-nál több termék?
