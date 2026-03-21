@@ -1,0 +1,22 @@
+Listázd ki azokat az ügyfeleket, akiknek a neve második karaktere a.
+Listázd ki azokat az ügyfeleket, akiknek a neve tartalmazza az er részletet, de nem A betűvel kezdődik.
+Sorold fel az összes különböző országot ábécérendben visszafelé.
+Mely városokból van legalább 2 ügyfél?
+Add vissza a 3 legdrágább terméket.
+Mely CategoryID-khez tartozik legalább 10 termék?
+Rendezd a termékeket CategoryID szerint növekvően, azon belül ár szerint csökkenően.
+Listázd ki azokat a termékeket, amelyek neve C-vel kezdődik és legalább 6 karakter hosszú. 
+Kérd le azokat a rendeléseket, amelyek 1996-ban készültek.
+Kérd le azokat a rendeléseket, amelyek 1996 júliusában készültek.
+Mely EmployeeID-k kezeltek 10-nél több rendelést?
+Hány különböző szállító (ShipperID) szerepel a rendelések között?
+Listázd ki azokat a beszállítókat, akik USA országból valók és a nevük tartalmazza a Food részletet.
+Listázd ki az alkalmazottak teljes nevét egy oszlopban. Az oszlop neve legyen FullName
+Mely országokból van pontosan 3 ügyfél?
+Listázd ki azokat a neveket, ahol az első betű nem A, de valahol később szerepel a.
+Add vissza az 5 legolcsóbb terméket, ár szerint növekvően.
+Hány különböző beszállítóhoz (SupplierID) tartozik termék?
+Mely beszállítókhoz tartozik 1-nél több termék?
+Rendezd a rendeléseket először EmployeeID, azon belül OrderDate szerint csökkenően.
+Hány rendelés született naponként?
+Listázd ki azokat a kategóriákat, ahol a leírás (Description) nem üres.
