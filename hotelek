@@ -61,7 +61,28 @@ left join room r on h.id = r.hotel_id
 group by h.id
 order by sum(r.room_area) desc  
 /*Jelenítsük meg a nevét és a szobáinak típusát azoknak a hoteleknek, amiknek a neve K-val kezdődik!*/
-
 select h.name, r.room_type from hotel h
 join room r on h.id = r.hotel_id
 where h.name like 'K%'
+
+/*(3 tábla kapcsolása) Jelenítsük meg a foglalások teljes árát, kezdeti és végdátumait a foglalást intéző felhasználó nevével!*/
+
+select a.username, b.full_price, rr.start_date, rr.end_date from account a
+inner join booking b on a.user_id = b.guest
+inner join room_reservation rr on  b.id = rr.booking_id
+
+/*Jelenítsük meg az összes aktív felhasználót és a felhasználóknak a foglalásukhoz fűzött megjegyzéseit!*/
+
+select a.firstname, a.lastname, b.remark from account a 
+inner join booking b on a.user_id = b.guest
+where a.is_enabled = 1 and remark is not null and remark != ''
+
+select a.firstname, a.lastname, b.remark, b.id from account a 
+inner join booking b on a.user_id = b.guest
+where a.is_enabled is true and remark is not null and  remark != ''
+
+/*jelenítsük meg azokat a felhasználókat, akiknek van hoteljük, és a hozzájuk tartozó hotel nevét*/
+
+select a.firstname, a.lastname, h.name from account a 
+inner join hotel h on a.hotel_id = h.id
+where a.role = 'ROLE_HOTELOWNER' and hotel_id is not null
