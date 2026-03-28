@@ -1,0 +1,62 @@
+/*Kérdezzük le az összes hotel nevét, a hozzátartozók szobák nevét, és azok foglalásait.*/
+
+select h.name, r.room_name, rr.start_date, rr.end_date from hotel h
+inner join room r on h.id = r.hotel_id
+inner join room_reservation rr on  r.id = rr.room_id;
+
+select h.name, r.room_name, rr.start_date, rr.end_date from hotel h
+inner join room r on h.id = r.hotel_id
+left join room_reservation rr on  r.id = rr.room_id
+
+/*Kérdezzük le azoknak a felhasználóknak a vezeték és keresztnevét, akikhez NEM tartozik foglalás.*/
+
+select a.firstname, a.lastname, b.id from account a
+left join booking b on a.user_id = b.guest
+where b.id is null;
+
+/*Kérdezzük le azoknak a hoteleknek a nevét, amelyekhez legalább 5 hotel_feature tartozik*/
+
+select h.name, count(*) as featureCount from hotel h
+inner join hotel_features on h.id = hotel_id
+group by h.id
+having featureCount >= 5
+/*Jelenítsük meg minden hotel nevét és a hozzájuk tartozó feature számát a hotel neve szerint csoportosítva. Azok a hotelek is jelenjenek meg, amelyekhez nincs feature rendelve!*/
+
+select h.name, 
+case when min(hf.hotel_features) is null then 0
+    else count(*) 
+end as featureCount from hotel h
+left join hotel_features hf on h.id = hf.hotel_id
+group by h.name
+
+select h.name, count(hf.hotel_id) as featureCount from hotel h
+left join hotel_features hf on h.id = hf.hotel_id
+group by h.name
+sql 
+/*Jelenítsük meg azoknak a hoteleknek a nevét és a hozzájuk tartozó szobák számát, amiknek legalább egy szobájuk van*/
+
+select h.name, count(room.hotel_id) from hotel h
+inner join room on h.id = room.hotel_id
+group by h.id  
+/*Azoknak a szobáknak, amikre van foglalás, jelenítsük meg a nevét, a foglalás kezdeti és vég dátumát!*/
+
+select r.room_name, rr.start_date, rr.end_date from room r
+inner join room_reservation rr on  r.id = rr.room_id
+  
+/*Jelenítsük meg az összes olyan felhasználót és az aktiváló tokenjük létrehozási dátumát, akik 2020. Augusztus 4-e után regisztráltak!*/
+
+select a.firstname, a.lastname, a.registration_date, t.created_date from account a 
+left join confirmation_token t on a.user_id = t.user_id
+where a.registration_date >= '2020-08-05'
+order by a.registration_date
+
+  /*Jelenítsük meg a szobák neveit és a hozzájuk tartozó feature-öket*/
+
+select r.room_name, rf.room_room_features from room r
+left join room_room_features rf on r.id = rf.room_id
+/*Jelenítsük meg az összes hotel nevét, és a kiadó szobáik összterületét terület szerint csökkenő sorrendben!*/
+
+select h.name, sum(r.room_area) as sumRoomArea from hotel h 
+left join room r on h.id = r.hotel_id
+group by h.id
+order by sum(r.room_area) desc  
