@@ -60,3 +60,8 @@ select h.name, sum(r.room_area) as sumRoomArea from hotel h
 left join room r on h.id = r.hotel_id
 group by h.id
 order by sum(r.room_area) desc  
+/*Jelenítsük meg a nevét és a szobáinak típusát azoknak a hoteleknek, amiknek a neve K-val kezdődik!*/
+
+select h.name, r.room_type from hotel h
+join room r on h.id = r.hotel_id
+where h.name like 'K%'
